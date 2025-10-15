@@ -1,1 +1,486 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 BFB 2 Has Officially Started! 🔥</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom styles for image download button, if needed */
+        /* The download-button class is now effectively unused as the buttons are removed from HTML */
+        .download-button {
+            display: none;
+        }
+    </style>
+    <script>
+        // Tailwind CSS configuration for JIT mode (optional, but good for custom themes)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: .7 },
+                        }
+                    },
+                    animation: {
+                        pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-black text-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-gray-800 bg-opacity-70 backdrop-blur-md shadow-lg py-4 px-6 flex justify-between items-center fixed w-full z-10 top-0">
+        <h1 class="text-xl md:text-3xl font-extrabold text-red-500 animate-pulse text-center flex-grow md:flex-none">
+            <span class="text-white">🔥</span> BFB 2 Has Officially Started! <span class="text-white">🔥</span>
+        </h1>
+        <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-red-400 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+        <nav id="main-nav" class="hidden md:block">
+            <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
+                <li><a href="#overview" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold">Overview</a></li>
+                <li><a href="#rules" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold">Rules</a></li>
+                <li><a href="#problems" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold">Problems</a></li>
+                <li><a href="#submission" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold">Submission</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-20 hidden md:hidden" aria-hidden="true"></div>
+
+    <nav id="mobile-nav" class="fixed top-0 right-0 h-full w-64 bg-gray-900 bg-opacity-95 backdrop-blur-md shadow-lg z-30 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-6 flex justify-end">
+            <button id="close-mobile-menu" class="text-gray-300 hover:text-red-400 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-col space-y-4 p-6">
+            <li><a href="#overview" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold text-lg" onclick="closeMobileMenu()">Overview</a></li>
+            <li><a href="#rules" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold text-lg" onclick="closeMobileMenu()">Rules</a></li>
+            <li><a href="#problems" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold text-lg" onclick="closeMobileMenu()">Problems</a></li>
+            <li><a href="#submission" class="block py-2 px-4 text-gray-300 hover:text-red-400 transition duration-300 font-semibold text-lg" onclick="closeMobileMenu()">Submission</a></li>
+        </ul>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-32">
+        <section id="overview" class="mb-20 text-center bg-gray-800 bg-opacity-60 p-10 rounded-xl shadow-2xl transform hover:scale-105 transition duration-500 ease-in-out border border-red-700">
+            <h2 class="text-5xl font-bold mb-6 text-red-400 leading-tight">Welcome, Challengers!</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                BFB 2 is officially underway, bringing you a series of challenging problems designed to push your limits. The first team to conquer a problem claims its points!
+            </p>
+            <div class="mt-8 flex justify-center space-x-6 flex-wrap">
+                <div class="bg-red-700 p-6 rounded-lg shadow-xl text-white m-2">
+                    <p class="text-lg font-semibold">Main Problems:</p>
+                    <p class="text-4xl font-bold number-animate" data-target="10">0</p>
+                </div>
+                <div class="bg-purple-700 p-6 rounded-lg shadow-xl text-white m-2">
+                    <p class="text-lg font-semibold">Bonus Problems:</p>
+                    <p class="text-4xl font-bold number-animate" data-target="7">0</p>
+                </div>
+                <div class="bg-blue-700 p-6 rounded-lg shadow-xl text-white m-2">
+                    <p class="text-lg font-semibold">Time Limit:</p>
+                    <p class="text-4xl font-bold number-animate" data-target="18" data-unit=" Hours">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rules" class="mb-20 bg-gray-800 bg-opacity-60 p-10 rounded-xl shadow-2xl border border-blue-700">
+            <h2 class="text-4xl font-bold text-center mb-12 text-blue-400">Rules & Guidelines</h2>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">Main Problem Rules:</h3>
+                    <ul class="list-disc list-inside space-y-4 text-gray-300 text-lg">
+                        <li>You’ll be given 10 main problems, each with a point value.</li>
+                        <li>The first team to solve a problem gets the points.</li>
+                        <li>⏳ Time limit: 18h per problem.</li>
+                        <li>If no one solves a main question after 18h, a bonus opens, and the main question will still remain for 6h.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">Bonus Unlock Rules:</h3>
+                    <ul class="list-disc list-inside space-y-4 text-gray-300 text-lg">
+                        <li>Every time 3 problems get solved — 1 bonus unlocks.</li>
+                        <li>A team 2+ problems behind can request a bonus if 5+ have been solved.</li>
+                        <li>At 5 problems solved, 1 bonus is released to all.</li>
+                        <li>Hosts can unlock a bonus at any time.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <h3 class="text-3xl font-bold mb-6 text-white">Proof Question Guidelines:</h3>
+                <ul class="list-disc list-inside space-y-4 text-gray-300 text-lg max-w-2xl mx-auto">
+                    <li>✔ Must be step-by-step, logically sound, and clear.</li>
+                    <li>📄 Submit as a message, PDF or latex.</li>
+                    <li>Partial credit can be given for proof questions.</li>
+                    <li>🏅 Bonus points for elegant solutions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="problems" class="mb-20">
+            <h2 class="text-4xl font-bold text-center mb-12 text-red-400">The Challenges Ahead</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 1</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="200">0</span></p>
+                    <img id="main-problem-1-img" src="bfbq1.png" alt="Main Problem 1" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-1-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-1-solver" class="text-yellow-400 font-bold">GROUP 2</span></p>
+                    <p class="text-lg font-semibold text-blue-200 mt-4">This question ends at 12.30pm on 15 June 2025!</p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 2</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="150">0</span></p>
+                    <img id="main-problem-2-img" src="bfbqn2.png" alt="Main Problem 2" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-2-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-2-solver" class="text-yellow-400 font-bold">GROUP 3</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 3</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="300">0</span></p>
+                    <img id="main-problem-3-img" src="bfbq3.png" alt="Main Problem 3" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-3-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-3-solver" class="text-yellow-400 font-bold">GROUP 3</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 4</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="400">0</span></p>
+                    <img id="main-problem-4-img" src="bfbq4.png" alt="Main Problem 4" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-4-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-4-solver" class="text-yellow-400 font-bold">GROUP 2</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 5</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="650">0</span></p>
+                    <img id="main-problem-5-img" src="bfbq5.png" alt="Main Problem 5" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-5-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-5-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 6</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="600">0</span></p>
+                    <img id="main-problem-6-img" src="" alt="Main Problem 6" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-6-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-6-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 7</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="800">0</span></p>
+                    <img id="main-problem-7-img" src="" alt="Main Problem 7" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-7-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-7-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 8</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="800">0</span></p>
+                    <img id="main-problem-8-img" src="" alt="Main Problem 8" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-8-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-8-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 9</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="850">0</span></p>
+                    <img id="main-problem-9-img" src="" alt="Main Problem 9" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-9-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-9-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-red-500 transition duration-300 text-center">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Main Problem 10</h3>
+                    <p class="text-2xl font-bold text-red-300 mb-4">Points: <span class="problem-points number-animate" data-target="900">0</span></p>
+                    <img id="main-problem-10-img" src="" alt="Main Problem 10" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="main-problem-10-placeholder" class="text-gray-400 text-sm italic">Image will appear here when problem is released.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="main-problem-10-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold text-center mt-16 mb-8 text-purple-400">Bonus Challenges (400 points each)</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 1</h4>
+                    <img id="bonus-problem-1-img" src="bonus1.png" alt="Bonus Problem 1" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-1-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Assigned to: <span id="bonus-problem-1-solver" class="text-yellow-400 font-bold">GROUP 3</span></p>
+                    <p class="text-lg font-semibold text-blue-200 mt-4"></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 2</h4>
+                    <img id="bonus-problem-2-img" src="bonus2.png" alt="Bonus Problem 2" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-2-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Assigned to: <span id="bonus-problem-2-solver" class="text-yellow-400 font-bold">GROUP 2</span></p>
+                    <p class="text-lg font-semibold text-blue-200 mt-4"></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 3</h4>
+                    <img id="bonus-problem-3-img" src="" alt="Bonus Problem 3" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-3-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="bonus-problem-3-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 4</h4>
+                    <img id="bonus-problem-4-img" src="" alt="Bonus Problem 4" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-4-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="bonus-problem-4-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 5</h4>
+                    <img id="bonus-problem-5-img" src="" alt="Bonus Problem 5" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-5-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="bonus-problem-5-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 6</h4>
+                    <img id="bonus-problem-6-img" src="" alt="Bonus Problem 6" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-6-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="bonus-problem-6-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+                <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-purple-500 transition duration-300 text-center">
+                    <h4 class="text-xl font-semibold mb-4 text-white">Bonus Problem 7</h4>
+                    <img id="bonus-problem-7-img" src="" alt="Bonus Problem 7" class="max-w-full h-auto mx-auto my-4 rounded-lg shadow-md border border-gray-700">
+                    <p id="bonus-problem-7-placeholder" class="text-gray-500 text-sm italic">Image will appear here when bonus is unlocked.</p>
+                    <p class="text-lg font-semibold text-gray-300 mt-4">Solved By: <span id="bonus-problem-7-solver" class="text-yellow-400 font-bold">[Not yet solved]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="submission" class="mb-20 bg-gray-800 bg-opacity-60 p-10 rounded-xl shadow-2xl border border-green-700">
+            <h2 class="text-4xl font-bold text-center mb-12 text-green-400">How to Submit Your Solution</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">Non-Proof Questions:</h3>
+                    <p class="text-gray-300 text-lg mb-4">Your message for a non-proof question should follow this format:</p>
+                    <code class="block bg-gray-900 p-4 rounded-lg text-green-300 text-xl font-mono">Question x: Ans: x Group: x</code>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">Proof Questions:</h3>
+                    <p class="text-gray-300 text-lg mb-4">For proof questions, use this format:</p>
+                    <code class="block bg-gray-900 p-4 rounded-lg text-green-300 text-xl font-mono">Question x: Group x: Proof: xxx (Attachment or Latex or proof in text)</code>
+                    <p class="text-gray-400 text-sm mt-2">Remember to be detailed and clear in your proof!</p>
+                </div>
+            </div>
+            <p class="text-center text-3xl font-bold mt-12 text-yellow-400">Good luck teams!</p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-80 py-8 px-6 text-center text-gray-500 border-t border-gray-700">
+        <p>&copy; 2025 LI XINYUAN. All rights reserved.</p>
+    </footer>
+
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="relative p-4 max-w-screen-lg max-h-screen-lg overflow-auto">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-white text-3xl font-bold p-2 rounded-full bg-gray-700 bg-opacity-70 hover:bg-gray-600 focus:outline-none transition-colors duration-300">
+                &times;
+            </button>
+            <img id="modal-image" src="" alt="Enlarged Problem Image" class="max-w-full max-h-full object-contain cursor-zoom-out">
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                closeMobileMenu(); // Close mobile menu after clicking a link
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        function openMobileMenu() {
+            mobileNav.classList.remove('translate-x-full');
+            mobileNav.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling body when menu is open
+        }
+
+        function closeMobileMenu() {
+            mobileNav.classList.remove('translate-x-0');
+            mobileNav.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore body scrolling
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking outside menu
+
+        // --- Image Modal Functionality ---
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        // Function to open the modal
+        const openImageModal = (imageSrc) => {
+            modalImage.src = imageSrc;
+            imageModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling body when modal is open
+        };
+
+        // Function to close the modal
+        const closeImageModal = () => {
+            imageModal.classList.add('hidden');
+            modalImage.src = ''; // Clear image source
+            document.body.style.overflow = ''; // Restore body scrolling
+        };
+
+        // Event Listener for the close button
+        closeModalBtn.addEventListener('click', closeImageModal);
+
+        // Event Listener to close modal when clicking outside the image (on the overlay)
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal || e.target === modalImage) { // If clicked on the modal background or the image itself
+                closeImageModal();
+            }
+        });
+
+        // Event Listener for the ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                closeImageModal();
+            }
+        });
+
+        // Function to handle image loading and make them clickable for the modal
+        const setupProblemImage = (problemType, problemNum) => {
+            const imgElement = document.getElementById(`${problemType}-problem-${problemNum}-img`);
+            const placeholderElement = document.getElementById(`${problemType}-problem-${problemNum}-placeholder`);
+
+            // Function to update image and its clickability
+            const updateImage = (src) => {
+                if (src) {
+                    imgElement.src = src;
+                    imgElement.onload = () => {
+                        imgElement.classList.remove('hidden'); // Ensure image is visible
+                        placeholderElement.classList.add('hidden'); // Hide placeholder
+                        // Make the image clickable
+                        imgElement.classList.add('cursor-pointer'); // Add a pointer cursor
+                        imgElement.addEventListener('click', () => openImageModal(src)); // Attach click handler
+                    };
+                    imgElement.onerror = () => {
+                        console.error(`Failed to load image: ${src}`);
+                        imgElement.classList.add('hidden'); // Hide broken image icon
+                        placeholderElement.classList.remove('hidden');
+                        // Remove click handler if image fails to load
+                        imgElement.removeEventListener('click', () => openImageModal(src));
+                        imgElement.classList.remove('cursor-pointer');
+                    };
+                } else {
+                    imgElement.src = ''; // Clear src
+                    imgElement.classList.add('hidden'); // Hide image element itself
+                    placeholderElement.classList.remove('hidden'); // Show placeholder
+                    // Remove click handler if no image
+                    imgElement.removeEventListener('click', () => openImageModal(src));
+                    imgElement.classList.remove('cursor-pointer');
+                }
+            };
+
+            // Initial check for existing images (if you manually set src in HTML)
+            if (imgElement.src && imgElement.src !== window.location.href + '#') {
+                updateImage(imgElement.src);
+            } else {
+                 // Ensure image is hidden and placeholder are in correct state initially
+                imgElement.classList.add('hidden');
+                placeholderElement.classList.remove('hidden');
+            }
+        };
+
+        // Initialize setup for all main problems
+        for (let i = 1; i <= 10; i++) {
+            setupProblemImage('main', i);
+        }
+
+        // Initialize setup for all bonus problems
+        for (let i = 1; i <= 7; i++) {
+            setupProblemImage('bonus', i);
+        }
+
+        // Number Counting Animation Effect
+        const animateNumber = (element, target, duration, unit = '') => {
+            const start = 0;
+            let startTime = null;
+
+            const easeOutQuad = t => t * (2 - t); // Quadratic easing out
+
+            let effectiveDuration = duration;
+            effectiveDuration = Math.max(500, duration - (target * 0.5));
+
+            const step = (currentTime) => {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / effectiveDuration, 1);
+                const easedProgress = easeOutQuad(progress);
+                const current = Math.floor(easedProgress * target);
+
+                element.textContent = current + unit;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    element.textContent = target + unit; // Ensure final value is exact
+                    element.setAttribute('data-animated', 'true'); // Mark as animated
+                }
+            };
+            requestAnimationFrame(step);
+        };
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the element is visible
+        };
+
+        const numberObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    // Reset animation state if it was animated and scrolled out, then back in
+                    if (element.getAttribute('data-animated') === 'true') {
+                        element.textContent = '0' + (element.dataset.unit || ''); // Reset to 0
+                        element.removeAttribute('data-animated');
+                    }
+
+                    const target = parseInt(element.dataset.target, 10);
+                    const unit = element.dataset.unit || ''; // Get unit if it exists
+                    if (!isNaN(target)) {
+                        animateNumber(element, target, 1500, unit); // Adjust duration as needed
+                    }
+                    // No need to unobserve if you want it to re-animate on re-entry
+                    // observer.unobserve(element); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.number-animate').forEach(element => {
+            numberObserver.observe(element);
+        });
+
+    });
+</script>
+</body>
+</html>
